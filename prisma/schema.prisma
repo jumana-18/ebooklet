@@ -1,0 +1,236 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String         @id @default(uuid())
+  email              String         @unique
+  name               String
+  phone              String?
+  avatarUrl          String?        @map("avatar_url")
+  passwordHash       String         @map("password_hash")
+  joinedDate         DateTime       @default(now()) @map("joined_date")
+  membership         String         @default("Bronze Member")
+  streak             Int            @default(1)
+  poeticPoints       Int            @default(10) @map("poetic_points")
+  favoriteGenres     String[]       @map("favorite_genres")
+  readingGoalMinutes Int            @default(30) @map("reading_goal_minutes")
+  role               String         @default("buyer")
+  createdAt          DateTime       @default(now()) @map("created_at")
+  updatedAt          DateTime       @updatedAt @map("updated_at")
+  addresses          Address[]
+  cart               Cart?
+  orders             Order[]
+  reviews            Review[]
+  activities         UserActivity[]
+  wishlist           Wishlist?
+
+  @@map("users")
+}
+
+model Address {
+  id            String   @id @default(uuid())
+  userId        String   @map("user_id")
+  label         String
+  recipientName String   @map("recipient_name")
+  street        String
+  city          String
+  province      String
+  zipCode       String   @map("zip_code")
+  phone         String
+  isDefault     Boolean  @default(false) @map("is_default")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("addresses")
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  products    Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id            String         @id @default(uuid())
+  title         String
+  author        String
+  coverImage    String?        @map("cover_image")
+  price         Decimal        @db.Decimal(10, 2)
+  rating        Decimal        @default(4.5) @db.Decimal(3, 1)
+  categoryId    String         @map("category_id")
+  categorySlug  String         @map("category_slug")
+  synopsis      String?
+  bookType      String         @default("physical") @map("book_type")
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  cartItems     CartItem[]
+  orderItems    OrderItem[]
+  category      Category       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  reviews       Review[]
+  wishlistItems WishlistItem[]
+
+  @@index([categoryId])
+  @@index([categorySlug])
+  @@map("products")
+}
+
+model Cart {
+  id        String     @id @default(uuid())
+  userId    String     @unique @map("user_id")
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+  items     CartItem[]
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("carts")
+}
+
+model CartItem {
+  id        String     @id @default(uuid())
+  cartId    String     @map("cart_id")
+  productId String     @map("product_id")
+  quantity  Int        @default(1)
+  format    BookFormat @default(physical)
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+  cart      Cart       @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product   Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([cartId, productId, format])
+  @@index([cartId])
+  @@index([productId])
+  @@map("cart_items")
+}
+
+model Wishlist {
+  id        String         @id @default(uuid())
+  userId    String         @unique @map("user_id")
+  createdAt DateTime       @default(now()) @map("created_at")
+  updatedAt DateTime       @updatedAt @map("updated_at")
+  items     WishlistItem[]
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("wishlists")
+}
+
+model WishlistItem {
+  id         String   @id @default(uuid())
+  wishlistId String   @map("wishlist_id")
+  productId  String   @map("product_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  wishlist   Wishlist @relation(fields: [wishlistId], references: [id], onDelete: Cascade)
+
+  @@unique([wishlistId, productId])
+  @@index([wishlistId])
+  @@index([productId])
+  @@map("wishlist_items")
+}
+
+model Order {
+  id               String      @id @default(uuid())
+  orderNumber      String      @unique @map("order_number")
+  userId           String      @map("user_id")
+  date             DateTime    @default(now())
+  total            Decimal     @db.Decimal(10, 2)
+  status           OrderStatus @default(Processing)
+  recipientName    String      @map("recipient_name")
+  emailAddress     String      @map("email_address")
+  street           String
+  city             String
+  zipCode          String      @map("zip_code")
+  deliveryMethod   String      @map("delivery_method")
+  paymentMethod    String      @map("payment_method")
+  cardNumberMasked String      @map("card_number_masked")
+  timeOfOrder      String?     @map("time_of_order")
+  addressLabel     String?     @map("address_label")
+  createdAt        DateTime    @default(now()) @map("created_at")
+  updatedAt        DateTime    @updatedAt @map("updated_at")
+  items            OrderItem[]
+  user             User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("orders")
+}
+
+model OrderItem {
+  id        String     @id @default(uuid())
+  orderId   String     @map("order_id")
+  productId String     @map("product_id")
+  quantity  Int        @default(1)
+  price     Decimal    @db.Decimal(10, 2)
+  format    BookFormat @default(physical)
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+  order     Order      @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([productId])
+  @@map("order_items")
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  productId String   @map("product_id")
+  rating    Int      @default(5)
+  comment   String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+  @@index([userId])
+  @@index([productId])
+  @@map("reviews")
+}
+
+model UserActivity {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  actionType String   @map("action_type")
+  bookId     String?  @map("book_id")
+  bookTitle  String?  @map("book_title")
+  metadata   Json?
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("user_activities")
+}
+
+model playing_with_neon {
+  id    Int    @id @default(autoincrement())
+  name  String
+  value Float? @db.Real
+}
+
+enum OrderStatus {
+  Processing
+  Delivered
+  Cancelled
+  Out_for_Delivery @map("Out for Delivery")
+}
+
+enum BookFormat {
+  physical
+  ebook
+  audio
+}

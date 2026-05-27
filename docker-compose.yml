@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # -------------------------------------------------------------
+  # DATABASE SERVICE (PostgreSQL)
+  # -------------------------------------------------------------
+  postgres:
+    image: postgres:16
+    container_name: ebooklet-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ebooklet_db
+    ports:
+      - "5440:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - ebooklet-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ebooklet_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+# Mount Persistent Storage Volumes
+volumes:
+  pgdata:
+    driver: local
+
+# Define Isolating Bridge Network
+networks:
+  ebooklet-network:
+    driver: bridge

@@ -1,0 +1,6 @@
+{
+  "name": "Ebooklet",
+  "description": "A fairytale-inspired online bookstore with a cozy, rustic aesthetic. Discover your next story in our curated digital collection.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

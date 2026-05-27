@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Libre Baskerville", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-parchment: #fdf6e3;
+  --color-earth-brown: #4a3728;
+  --color-moss-green: #4f7942;
+  --color-sage-green: #8da399;
+  --color-forest-green: #223c28;
+  --color-terracotta: #c06c4d;
+  --color-mushroom-red: #cc4444;
+  --color-beige-cream: #f5f5dc;
+
+  /* Dark mode variants */
+  --color-dark-bg: #1a1c18;
+  --color-dark-card: #242820;
+  --color-dark-text: #e2e3d8;
+  --color-dark-muted: #909287;
+}
+
+@layer base {
+  body {
+    @apply bg-parchment text-earth-brown font-sans transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+
+  .dark {
+    --color-parchment: var(--color-dark-bg);
+    --color-earth-brown: var(--color-dark-text);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom scrollbar for horizontal scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

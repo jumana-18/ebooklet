@@ -1,0 +1,316 @@
+{
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Fantasy",
+      "slug": "fantasy",
+      "description": "Explore magical kingdoms, ancient spells, and mythical legends."
+    },
+    {
+      "id": "cat-2",
+      "name": "Romance",
+      "slug": "romance",
+      "description": "Immerse in timeless tales of affection, bonding, and emotional deepness."
+    },
+    {
+      "id": "cat-3",
+      "name": "Mystery",
+      "slug": "mystery",
+      "description": "Unravel riddles, secret details, and clever plotting."
+    },
+    {
+      "id": "cat-4",
+      "name": "Sci-Fi",
+      "slug": "sci-fi",
+      "description": "Venture into cosmos protocols, advanced mechanics, and space drift."
+    },
+    {
+      "id": "cat-5",
+      "name": "Horror",
+      "slug": "horror",
+      "description": "Delve into eerie hauntings, shadows, and occult occurrences."
+    },
+    {
+      "id": "cat-6",
+      "name": "Manga",
+      "slug": "manga",
+      "description": "Enjoy hand-crafted graphic novels and spirit warriors stories."
+    },
+    {
+      "id": "cat-7",
+      "name": "Self Help",
+      "slug": "self-help",
+      "description": "Nurture wisdom, daily streaks, habits, and mindfulness."
+    },
+    {
+      "id": "cat-8",
+      "name": "Poetry",
+      "slug": "poetry",
+      "description": "Savor elegant stanzas, rhymes, and rhythmic strophes."
+    },
+    {
+      "id": "cat-9",
+      "name": "Classics",
+      "slug": "classics",
+      "description": "Sip vintage scripts, original philosophies, and historic arts."
+    },
+    {
+      "id": "cat-10",
+      "name": "Young Adult",
+      "slug": "young-adult",
+      "description": "Connect with teenage explorations, growth curves, and school memories."
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "The Enchanted Forest",
+      "author": "Elara Moonwhisper",
+      "price": 14.99,
+      "rating": 4.8,
+      "coverImage": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "fantasy",
+      "categoryId": "cat-1",
+      "synopsis": "A beautiful journey through magical, whispering woodlands hidden beyond the mortal stream.",
+      "bookType": "ebook"
+    },
+    {
+      "id": "2",
+      "title": "The Shadow Heir",
+      "author": "L. J. Andrews",
+      "price": 12.49,
+      "rating": 4.7,
+      "coverImage": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "fantasy",
+      "categoryId": "cat-1",
+      "synopsis": "Dark crowns, magical inheritance, and hidden shadows conflicting for control over land.",
+      "bookType": "physical"
+    },
+    {
+      "id": "3",
+      "title": "The Lost Kingdom",
+      "author": "M. R. Hawthorne",
+      "price": 15.99,
+      "rating": 4.9,
+      "coverImage": "https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "fantasy",
+      "categoryId": "cat-1",
+      "synopsis": "Forgotten ruins, royal lineage mysteries, and an adventure to reclaim an emerald valley.",
+      "bookType": "ebook"
+    },
+    {
+      "id": "4",
+      "title": "A Thousand Promises",
+      "author": "Clara Voss",
+      "price": 11.99,
+      "rating": 4.6,
+      "coverImage": "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "romance",
+      "categoryId": "cat-2",
+      "synopsis": "An emotional romance detailing covenants of gold made in secret gardens.",
+      "bookType": "physical"
+    },
+    {
+      "id": "5",
+      "title": "Wisteria Lane",
+      "author": "Sophie Thorne",
+      "price": 14.99,
+      "rating": 4.5,
+      "coverImage": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "romance",
+      "categoryId": "cat-2",
+      "synopsis": "Sipping lavender teas, local gossips, and budding connections in a vintage town.",
+      "bookType": "ebook"
+    },
+    {
+      "id": "6",
+      "title": "The Silent Grove",
+      "author": "R. K. Sterling",
+      "price": 15.99,
+      "rating": 4.8,
+      "coverImage": "https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "mystery",
+      "categoryId": "cat-3",
+      "synopsis": "A quiet grove conceals secrets of high political plots and missing archeologists.",
+      "bookType": "physical"
+    },
+    {
+      "id": "7",
+      "title": "Whispers in the Mist",
+      "author": "Thomas Hardie",
+      "price": 17.5,
+      "rating": 4.2,
+      "coverImage": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "mystery",
+      "categoryId": "cat-3",
+      "synopsis": "Lighthouse investigations, thick ocean mist, and missing diaries written in cipher code.",
+      "bookType": "ebook"
+    },
+    {
+      "id": "8",
+      "title": "Nebula Protocol",
+      "author": "Jax Vansen",
+      "price": 25.99,
+      "rating": 4.9,
+      "coverImage": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "sci-fi",
+      "categoryId": "cat-4",
+      "synopsis": "Cybernetic conspiracies, star cruisers control codes, and deep space protocol sequences.",
+      "bookType": "physical"
+    },
+    {
+      "id": "9",
+      "title": "Solar Drift",
+      "author": "Elena Kostic",
+      "price": 21,
+      "rating": 4.6,
+      "coverImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600",
+      "categorySlug": "sci-fi",
+      "categoryId": "cat-4",
+      "synopsis": "Navigating solar storms, resource shortages, and diplomatic relations with ring planets.",
+      "bookType": "ebook"
+    }
+  ],
+  "users": [
+    {
+      "id": "elara-uuid-123456",
+      "name": "Elara Moonwhisper",
+      "email": "elara@woodland.com",
+      "passwordHash": "$2b$10$oJB.F/XzcZAUOsdKqkxv5O4CQAEMrOFzyiquYCPD8MOIcqX6yShT.",
+      "phone": "+1 (555) 732-4467",
+      "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
+      "joinedDate": "2026-05-27T19:36:16.360Z",
+      "membership": "Gold Member",
+      "streak": 19,
+      "poeticPoints": 360,
+      "favoriteGenres": [
+        "Fantasy",
+        "Ancient History",
+        "Nature & Poetry"
+      ],
+      "readingGoalMinutes": 45,
+      "role": "buyer",
+      "createdAt": "2026-05-27T19:36:16.360Z",
+      "updatedAt": "2026-05-27T20:01:54.523Z"
+    },
+    {
+      "id": "use-oxb6qxcl9",
+      "name": "sarah",
+      "email": "hello@gmail.com",
+      "passwordHash": "$2b$12$G3sL8BccZ/8V.Qz4rlyp..uiGLeXcawu3VcaeRF4PqNzMUk.jlUlK",
+      "phone": "+9166666666666",
+      "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200",
+      "readingGoalMinutes": 40,
+      "favoriteGenres": [
+        "Ancient History"
+      ],
+      "joinedDate": "2026-05-27T20:04:40.823Z",
+      "membership": "Bronze Member",
+      "streak": 1,
+      "poeticPoints": 10,
+      "role": "buyer",
+      "createdAt": "2026-05-27T20:04:40.824Z",
+      "updatedAt": "2026-05-27T20:04:40.824Z"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "addr-1",
+      "userId": "elara-uuid-123456",
+      "label": "Home Address",
+      "recipientName": "Elara Moonwhisper",
+      "street": "14 Woodland Lane",
+      "city": "Greenwood",
+      "province": "Fantasy Valley",
+      "zipCode": "90210-99",
+      "phone": "+1 (555) 732-4467",
+      "isDefault": true,
+      "createdAt": "2026-05-27T19:36:16.360Z",
+      "updatedAt": "2026-05-27T19:36:16.360Z"
+    },
+    {
+      "id": "addr-2",
+      "userId": "elara-uuid-123456",
+      "label": "Office Address",
+      "recipientName": "Elara Moonwhisper",
+      "street": "7 Emerald Row",
+      "city": "Oakville",
+      "province": "Meadow Peak",
+      "zipCode": "85200-11",
+      "phone": "+1 (555) 211-9877",
+      "isDefault": false,
+      "createdAt": "2026-05-27T19:36:16.360Z",
+      "updatedAt": "2026-05-27T19:36:16.360Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-juwnlzuzk",
+      "orderNumber": "BKL-50655-EU",
+      "userId": "elara-uuid-123456",
+      "total": 77.97,
+      "status": "Processing",
+      "recipientName": "Elara Moonwhisper",
+      "emailAddress": "elara@woodland.com",
+      "street": "14 Woodland Lane",
+      "city": "Greenwood",
+      "zipCode": "90210-99",
+      "deliveryMethod": "owl",
+      "paymentMethod": "card",
+      "cardNumberMasked": "•••• •••• •••• 9012",
+      "addressLabel": "14 Woodland Lane",
+      "timeOfOrder": "01:31 AM",
+      "createdAt": "2026-05-27T20:01:54.509Z",
+      "updatedAt": "2026-05-27T20:01:54.509Z"
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "ori-8ut9o5596",
+      "orderId": "ord-juwnlzuzk",
+      "productId": "8",
+      "price": 25.99,
+      "quantity": 3,
+      "format": "physical",
+      "createdAt": "2026-05-27T20:01:54.509Z",
+      "updatedAt": "2026-05-27T20:01:54.509Z"
+    }
+  ],
+  "reviews": [],
+  "carts": [
+    {
+      "id": "cart-elara",
+      "userId": "elara-uuid-123456"
+    },
+    {
+      "id": "cart-use-oxb6qxcl9",
+      "userId": "use-oxb6qxcl9"
+    }
+  ],
+  "cartItems": [],
+  "wishlists": [
+    {
+      "id": "wish-elara",
+      "userId": "elara-uuid-123456"
+    },
+    {
+      "id": "wish-use-oxb6qxcl9",
+      "userId": "use-oxb6qxcl9"
+    }
+  ],
+  "wishlistItems": [],
+  "activities": [
+    {
+      "id": "act-2jma8y4nw",
+      "userId": "elara-uuid-123456",
+      "actionType": "order_complete",
+      "bookTitle": "Nebula Protocol",
+      "metadata": {
+        "orderNumber": "BKL-50655-EU",
+        "total": 77.97
+      },
+      "createdAt": "2026-05-27T20:01:54.527Z",
+      "updatedAt": "2026-05-27T20:01:54.527Z"
+    }
+  ]
+}
