@@ -2,11 +2,11 @@ import axios from 'axios';
 
 // Create configured axios API instance
 export const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL + '/api',
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true, // Enables sending/receiving cookies automatically
+  withCredentials: true,
 });
 
 // Configure Request Interceptor to dynamically inject JWT token from LocalStorage if present
@@ -31,7 +31,7 @@ api.interceptors.response.use(
       console.warn('⚠️ Session expired or invalid token detected. Log out user process triggered.');
       localStorage.removeItem('booklet_jwt_token');
       localStorage.removeItem('booklet_user_session');
-      // Force reload or redirect to trigger AuthContext update if appropriate
+
       if (typeof window !== 'undefined') {
         window.dispatchEvent(new Event('auth_expired'));
       }
