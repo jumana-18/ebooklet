@@ -38,3 +38,5 @@ Thumbs.db
 
 # Prisma generated files
 prisma/generated/
+
+README.md
